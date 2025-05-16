@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Excel Sheet Combiner | STS IA TEAM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Excel Icon -->
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/732/732220.png" type="image/png">
+    <style>
+        body {
+            background: #f8f9fa;
+        }
+        .container {
+            max-width: 600px;
+        }
+        .logo {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+        .card {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: none;
+        }
+        footer {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Top Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm mb-4">
+    <div class="container d-flex align-items-center">
+        <img src="{{ url_for('static', filename='MicrosoftTeams-image.png') }}" alt="Logo" width="40" class="me-3">
+        <span class="navbar-brand mb-0 h4">Kunshan IA Assistant - File Handler</span>
+    </div>
+</nav>
+
+<!-- Main Container -->
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732220.png" alt="Excel Logo" class="logo">
+        <!-- <h2 class="fw-bold">Excel Sheet Combiner</h2> -->
+        <p class="text-muted">Upload Excel files and merge specific sheets into one</p>
+    </div>
+
+    <div class="card p-4">
+        <form method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="files" class="form-label">Upload Excel Files</label>
+                <input type="file" name="files" id="files" accept=".xlsx,.xlsm,.xltx,.xltm" multiple required class="form-control">
+            </div>
+
+            <div class="mb-3">
+                <label for="sheet_names" class="form-label">
+                    Sheet Names (one per file, separated by semicolon)
+                </label>
+                <textarea name="sheet_names" id="sheet_names" class="form-control" rows="3" required placeholder="Example: Sheet1,Sheet3; Sheet2; Sheet1,Sheet4"></textarea>
+                <small class="text-muted">Use commas to separate sheets within a file, and semicolons to separate between files.</small>
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">🔄 Combine & Download</button>
+        </form>
+    </div>
+
+    <footer class="mt-4">
+        <p>Powered by <strong>STS IA TEAM</strong> 🚀</p>
+    </footer>
+</div>
+
+</body>
+</html>

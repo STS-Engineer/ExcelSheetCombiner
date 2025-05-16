@@ -1,0 +1,14 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# Excel temporary files
+~$*.xlsx
+~$*.xlsm
+
+# Python artifacts
+__pycache__/
+*.pyc
+
+# Virtual environment
+venv/
+
+# VSCode settings (optional but recommended)
+.vscode/
