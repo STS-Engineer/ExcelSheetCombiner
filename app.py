@@ -125,6 +125,8 @@ def anhui():
     return render_template('anhui.html')
 
 # Optional default redirect to /kunshan
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
+    if request.method == 'POST':
+        return handle_post_request('kunshan')
     return render_template('kunshan.html')
