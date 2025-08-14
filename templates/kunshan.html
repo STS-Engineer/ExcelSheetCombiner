@@ -88,14 +88,39 @@
           class="logo"
         />
         <p class="text-muted">
-          Upload Excel files and merge specific sheets into one
+          Upload Excel files and automatically process predefined sheets
         </p>
+      </div>
+
+      <!-- Information Card -->
+      <div class="card mb-4 border-info">
+        <div class="card-header bg-info text-white">
+          <h6 class="mb-0">📋 Automatic Sheet Processing</h6>
+        </div>
+        <div class="card-body">
+          <p class="mb-2"><strong>Input Sheets → Output Sheets:</strong></p>
+          <ul class="mb-0 small">
+            <li><code>"Date"</code> → <strong>WindingStationRodChoke</strong></li>
+            <li><code>"Data" (1st)</code> → <strong>GluingStationRodChoke</strong></li>
+            <li><code>"Data" (2nd)</code> → <strong>RodChokeFinalInspection</strong></li>
+            <li><code>"Data" (3rd)</code> → <strong>FuseChokeFinalInspection</strong></li>
+            <li><code>"Inspection data"</code> → <strong>WindingStationFuseChoke</strong></li>
+          </ul>
+          <div class="alert alert-light mt-3 mb-0">
+            <small class="text-muted">
+              <strong>Note:</strong> The system automatically detects and processes these sheets.
+              No manual sheet name input required!
+            </small>
+          </div>
+        </div>
       </div>
 
       <div class="card p-4">
         <form method="POST" enctype="multipart/form-data">
-          <div class="mb-3">
-            <label for="files" class="form-label">Upload Excel Files</label>
+          <div class="mb-4">
+            <label for="files" class="form-label">
+              <strong>📁 Upload Excel Files</strong>
+            </label>
             <input
               type="file"
               name="files"
@@ -105,49 +130,16 @@
               required
               class="form-control"
             />
-          </div>
-
-          <div class="mb-3">
-            <label for="sheet_names" class="form-label">
-              Sheet Names (for each file, separated by semicolon)
-            </label>
-            <textarea
-              name="sheet_names"
-              id="sheet_names"
-              class="form-control"
-              rows="3"
-              required
-              placeholder="Example: Sheet1,Sheet3; Sheet2; Sheet1,Sheet4"
-            ></textarea>
-            <small class="text-muted">
-              Separate sheet names within the same file by commas (`,`), and use
-              semicolons (`;`) to separate different files.
-              <br />Example: <code>Sheet1,Sheet3; Sheet2; Sheet1,Sheet4</code> →
-              3 files, with specified sheets
-            </small>
-          </div>
-          <div class="mb-3">
-            <label for="new_sheet_names" class="form-label">
-              Optional: Custom Sheet Names (same structure as above)
-            </label>
-            <textarea
-              name="new_sheet_names"
-              id="new_sheet_names"
-              class="form-control"
-              rows="3"
-              placeholder="Example: KPIs,Quality; Summary; Final1,Final2"
-            ></textarea>
-            <small class="text-muted">
-              You can rename the resulting sheet names using this. Same
-              structure as sheet names.
-              <br />Example: <code>KPIs,Quality; Summary; Final1,Final2</code> →
-              will rename the output sheets
+            <small class="text-muted mt-2">
+              Select one or more Excel files containing the predefined sheets listed above.
             </small>
           </div>
 
-          <button type="submit" class="btn btn-success w-100">
-            🔄 Combine & Download
-          </button>
+          <div class="d-grid">
+            <button type="submit" class="btn btn-success btn-lg">
+              🔄 Process & Download Combined File
+            </button>
+          </div>
         </form>
       </div>
 
