@@ -6,7 +6,6 @@ from io import BytesIO
 
 
 app = Flask(__name__)
-
 # === Scheduler config ===
 class Config:
     SCHEDULER_API_ENABLED = True
